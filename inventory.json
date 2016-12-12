@@ -1,0 +1,30 @@
+{
+  "cars": [
+    {
+      "make": "Nissan",
+      "model": "Rogue",
+      "year": "2006",
+      "price": "8999",
+      "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats, power everything."
+    },
+    {
+      "make": "Jeep",
+      "model": "Willys MB",
+      "year": "1942",
+      "price": "$1,000,000",
+      "description": "It goes off-road, through wars, and has no doors . It is worth every cent. "
+    },{
+      "make": "Honda",
+      "model": "Civic",
+      "year": "2009",
+      "price": "Priceless",
+      "description": "It's owned by Ben Conner...NOUGH SAID"
+    },{
+      "make": "Rolls-Royce",
+      "model": "15 hp",
+      "year": "1904",
+      "price": "$35,000,000",
+      "description": "This magnificent machine was created by Charles Rolls and Henry Royce. It is one of six made and has a top speed of 39 mph (man that's fast). "
+    }
+  ]
+}
