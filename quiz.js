@@ -1,8 +1,10 @@
 var carInventory;
 var mainBodyDiv = document.querySelector(".main-body");
 var userInput = document.querySelector(".input-field");
-var editButton = document.querySelector(".edit-btn")
-loadInventory();
+var saveButton = document.querySelector(".save-btn");
+//var carCard = document.querySelectorAll(".car-cards")
+
+loadInventory()
 
 function populatePage(inventory) {
   // Loop over the inventory and populate the page
@@ -14,12 +16,24 @@ function populatePage(inventory) {
                                     <p>Description: ${inventory.cars[i].description}</p>
                                 </div>`
     }
-    var carCard = document.querySelectorAll(".car-cards")
   // Now that the DOM is loaded, establish all the event listeners needed
+    //Adds EventListener to each car card
+    var carCard = document.querySelectorAll(".car-cards")
     for (var i = 0; i < carCard.length; i++) {
         carCard[i].addEventListener("click",cardSelected)
     }
 }
+
+// function eventListeners(){
+//     //Adds EventListener to each car card
+//     for (var i = 0; i < carCard.length; i++) {
+//         carCard[i].addEventListener("click",cardSelected)
+//     }
+//     //Adds EventListener to the input field
+//     userInput.addEventListener("keypress", saveEdit)
+//     //Adds EventListener to the Save button
+//     saveButton.addEventListener("click", saveEdit)
+// }
 
 // Load the inventory and send a callback function to be
 // invoked after the process is complete
@@ -59,46 +73,21 @@ function cardSelected(e){
 
 function editPElement(pTag){
     userInput.value = pTag.querySelector('p').innerText;
+    //Adds EventListener to the input field
     userInput.addEventListener("keypress", saveEdit)
-    editButton.addEventListener("click", saveEdit)
-
+    //Adds EventListener to the Save button
+    saveButton.addEventListener("click", saveEdit)
+    console.log(userInput.value)
     function saveEdit(evt){
-    console.log(evt)
-     if(evt.key === "Enter" || evt.target.innerHTML === "Enter new car info."){
-        pTag.querySelector('p').innerText = userInput.value;
-         console.log("save change")
-     }
+    //console.log(evt)
+        if(evt.key === "Enter" || evt.target.innerHTML === "Save"){
+            pTag.querySelector('p').innerText = userInput.value;
+            //Adds EventListener to the input field
+            userInput.removeEventListener("keypress", saveEdit)
+            //Adds EventListener to the Save button
+            saveButton.removeEventListener("click", saveEdit)
+            console.log("save change")
+            console.log(userInput.value)
+        }
+    }
 }
-}
-
-// function saveEdit(evt){
-//     console.log(evt)
-//      if(evt.key === "Enter" || evt.target.innerHTML === "Enter new car info."){
-
-//          console.log("save change")
-//      }
-// }
-
-
-
-
-
-
-
-
-
-
-
-// var editTask = function(){
-//   var listItim = this.parentNode;
-//   var editInput = listItim.querySelector("input[type=text]");
-//   var label = listItim.querySelector("label");
-//   var containsClass = listItim.classList.contains("editMode");
-//   if(containsClass){
-//     label.innerText = editInput.value;
-//   }else{
-//     editInput.value = label.innerText;
-//   }
-//   listItim.classList.toggle("editMode");
-
-// }
