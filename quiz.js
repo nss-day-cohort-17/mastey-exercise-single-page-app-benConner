@@ -19,6 +19,7 @@ function populatePage(inventory) {
     eventListeners()
 }
 
+//function for all the eventListeners
 function eventListeners(){
     var carCard = document.querySelectorAll(".car-cards");
     //Adds EventListener to each car card
@@ -47,6 +48,7 @@ function loadInventory () {
   });
 }
 
+//function grabs the target parent and sends the parent element and a color
 function targetCard(e){
     console.log('hey')
     var style = "green"
@@ -62,36 +64,15 @@ function targetCard(e){
         //console.log('add2')
     }
 }
-
+//function takes parent element and adds styling
 function cardSelected(element, color){
     element.classList.add(color)
-    element.querySelector('p').innerText = "";
+    element.querySelector('p').innerText ="";
     userInput.value = element.querySelector('p').innerText
     userInput.focus();
     eventListeners()
 }
-// function editPElement(pTag){
-//     userInput.value = pTag.querySelector('p').innerText;
-//     userInput.focus();
-//     //Adds EventListener to the input field
-//     userInput.addEventListener("keyup", saveEdit)
-//     //Adds EventListener to the Save button
-//     saveButton.addEventListener("click", saveEdit)
-//     console.log(userInput.value)
-//     function saveEdit(evt){
-//     //console.log(evt)
-//         pTag.querySelector('p').innerText = userInput.value;
-//         if(evt.key === "Enter" || evt.target.innerHTML === "Save"){
-//             pTag.querySelector('p').innerText = userInput.value;
-//             //Adds EventListener to the input field
-//             userInput.removeEventListener("keyup", saveEdit)
-//             //Adds EventListener to the Save button
-//             saveButton.removeEventListener("click", saveEdit)
-//             console.log("save change")
-//             console.log(userInput.value)
-//         }
-//     }
-// }
+//function the saves the text and removes styling class on save
 function saveEdit(evt){
     //console.log(evt)
         targetParent.querySelector('p').innerText = userInput.value;
@@ -101,15 +82,16 @@ function saveEdit(evt){
             userInput.removeEventListener("keyup", saveEdit)
             //Adds EventListener to the Save button
             saveButton.removeEventListener("click", saveEdit)
+            removeClass()
             console.log("save change")
             console.log(userInput.value)
         }
     }
-
-function  removeClass(){
-    var elementsWith = document.querySelector(".selected-car");
+//function to remove styles class
+function removeClass(){
+    var elementsWith = document.querySelector(".green");
     if (elementsWith != null){
-        elementsWith.classList.remove("selected-car");
+        elementsWith.classList.remove("green");
         console.log('remove')
-    }//else if(){}
+    }
 }
