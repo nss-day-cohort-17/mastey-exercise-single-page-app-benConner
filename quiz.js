@@ -78,6 +78,7 @@ function saveEdit(evt){
         targetParent.querySelector('p').innerText = userInput.value;
         if(evt.key === "Enter" || evt.target.innerHTML === "Save"){
             targetParent.querySelector('p').innerText = userInput.value;
+            userInput.value = ""
             //Adds EventListener to the input field
             userInput.removeEventListener("keyup", saveEdit)
             //Adds EventListener to the Save button
